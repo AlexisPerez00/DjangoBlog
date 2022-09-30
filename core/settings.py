@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 SITE_NAME = 'DjangoBlog'
 
-DEBUG = True
+DEBUG = False
 
 
 
@@ -48,6 +48,8 @@ if not DEBUG:
         "www.DjangoBlog",
         "DjangoBlog.com",
         "DjangoBlog",
+        "DjangoBlog.vercel.com/",
+        "DjangoBlog.vercel.app/"
     ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -149,12 +151,16 @@ if not DEBUG:
         'https://DjangoBlog.com',
         'https://admin.DjangoBlog.com',
         'https://blog.DjangoBlog.com',
+        'https://DjangoBlog.vercel.com',
+        'https://DjangoBlog.vercel.app'
     ]
 
     CSRF_TRUSTED_ORIGINS = [
         'https://DjangoBlog.com',
         'https://admin.DjangoBlog.com',
         'https://blog.DjangoBlog.com',
+        'https://DjangoBlog.vercel.com',
+        'https://DjangoBlog.vercel.app'
     ]
 
 
