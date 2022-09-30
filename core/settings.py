@@ -49,7 +49,8 @@ if not DEBUG:
         "DjangoBlog.com",
         "DjangoBlog",
         "DjangoBlog.vercel.com/",
-        "DjangoBlog.vercel.app/"
+        "DjangoBlog.vercel.app/",
+        "https://django-blog-sepia.vercel.app/"
     ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -152,7 +153,8 @@ if not DEBUG:
         'https://admin.DjangoBlog.com',
         'https://blog.DjangoBlog.com',
         'https://DjangoBlog.vercel.com',
-        'https://DjangoBlog.vercel.app'
+        'https://DjangoBlog.vercel.app',
+        'https://django-blog-sepia.vercel.app/'
     ]
 
     CSRF_TRUSTED_ORIGINS = [
@@ -160,7 +162,8 @@ if not DEBUG:
         'https://admin.DjangoBlog.com',
         'https://blog.DjangoBlog.com',
         'https://DjangoBlog.vercel.com',
-        'https://DjangoBlog.vercel.app'
+        'https://DjangoBlog.vercel.app',
+        'https://django-blog-sepia.vercel.app/'
     ]
 
 
