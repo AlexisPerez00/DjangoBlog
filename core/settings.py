@@ -45,8 +45,7 @@ ALLOWED_HOSTS = [
 
 if not DEBUG:
     ALLOWED_HOSTS = [
-        "https://django-blog-postgres.herokuapp.com",
-        "https://django-blog-sepia.vercel.app/"
+        "https://django-blog-postgres.herokuapp.com"
     ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -157,12 +156,10 @@ CSRF_TRUSTED_ORIGINS = [
 if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
         "https://django-blog-postgres.herokuapp.com",
-        'https://django-blog-sepia.vercel.app/'
     ]
 
     CSRF_TRUSTED_ORIGINS = [
         "https://django-blog-postgres.herokuapp.com",
-        'https://django-blog-sepia.vercel.app/'
     ]
 
 
