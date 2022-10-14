@@ -233,13 +233,13 @@ FILE_UPLOAD_PERMISSIONS = 0o640
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 if not DEBUG:
-    DEFAULT_FROM_EMAIL="Uridium <mail@uridium.network>"
+    # DEFAULT_FROM_EMAIL="Uridium <mail@uridium.network>"
     EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = env('EMAIL_HOST')
-    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-    EMAIL_PORT = env('EMAIL_PORT')
-    EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+    # EMAIL_HOST = env('EMAIL_HOST')
+    # EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+    # EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    # EMAIL_PORT = env('EMAIL_PORT')
+    # EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 
     # django-ckeditor will not work with S3 through django-storages without this line in settings.py
     AWS_QUERYSTRING_AUTH = False
