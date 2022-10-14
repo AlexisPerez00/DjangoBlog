@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import environ
+import django_heroku
 
 env = environ.Env()
 environ.Env.read_env()
@@ -33,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 SITE_NAME = 'DjangoBlog'
 
-DEBUG = False
+DEBUG = True
 
 
 
@@ -44,12 +45,7 @@ ALLOWED_HOSTS = [
 
 if not DEBUG:
     ALLOWED_HOSTS = [
-        "www.DjangoBlog.com",
-        "www.DjangoBlog",
-        "DjangoBlog.com",
-        "DjangoBlog",
-        "DjangoBlog.vercel.com/",
-        "DjangoBlog.vercel.app/",
+        "django-blog-postgres.herokuapp.com",
         "https://django-blog-sepia.vercel.app/"
     ]
 
@@ -128,10 +124,21 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd94m6nghec0t3u',
+        'USER': 'jttyuzixvlqazz',
+        'PASSWORD': 'c79164741f970f54ad6b72a395e04dd6d7b5a06486c596e724fddd3245c36a1a',
+        'HOST': 'ec2-54-227-248-71.compute-1.amazonaws.com', 
+        'PORT': '5432',
     }
 }
 
@@ -149,20 +156,12 @@ CSRF_TRUSTED_ORIGINS = [
 
 if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
-        'https://DjangoBlog.com',
-        'https://admin.DjangoBlog.com',
-        'https://blog.DjangoBlog.com',
-        'https://DjangoBlog.vercel.com',
-        'https://DjangoBlog.vercel.app',
+        "django-blog-postgres.herokuapp.com",
         'https://django-blog-sepia.vercel.app/'
     ]
 
     CSRF_TRUSTED_ORIGINS = [
-        'https://DjangoBlog.com',
-        'https://admin.DjangoBlog.com',
-        'https://blog.DjangoBlog.com',
-        'https://DjangoBlog.vercel.com',
-        'https://DjangoBlog.vercel.app',
+        "django-blog-postgres.herokuapp.com",
         'https://django-blog-sepia.vercel.app/'
     ]
 
@@ -203,6 +202,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
