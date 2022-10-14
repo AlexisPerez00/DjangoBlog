@@ -45,7 +45,7 @@ ALLOWED_HOSTS = [
 
 if not DEBUG:
     ALLOWED_HOSTS = [
-        "django-blog-postgres.herokuapp.com",
+        "https://django-blog-postgres.herokuapp.com",
         "https://django-blog-sepia.vercel.app/"
     ]
 
@@ -156,12 +156,12 @@ CSRF_TRUSTED_ORIGINS = [
 
 if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
-        "django-blog-postgres.herokuapp.com",
+        "https://django-blog-postgres.herokuapp.com",
         'https://django-blog-sepia.vercel.app/'
     ]
 
     CSRF_TRUSTED_ORIGINS = [
-        "django-blog-postgres.herokuapp.com",
+        "https://django-blog-postgres.herokuapp.com",
         'https://django-blog-sepia.vercel.app/'
     ]
 
