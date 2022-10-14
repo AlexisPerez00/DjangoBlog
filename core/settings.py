@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 SITE_NAME = 'DjangoBlog'
 
-DEBUG = True
+DEBUG = False
 
 
 
