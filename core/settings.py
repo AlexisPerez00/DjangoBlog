@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import environ
-import django_heroku
+# import django_heroku
 
 env = environ.Env()
 environ.Env.read_env()
@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 SITE_NAME = 'DjangoBlog'
 
-DEBUG = False
+DEBUG = True
 
 
 
@@ -45,7 +45,9 @@ ALLOWED_HOSTS = [
 
 if not DEBUG:
     ALLOWED_HOSTS = [
-        "https://django-blog-postgres.herokuapp.com"
+        # "https://django-blog-postgres.herokuapp.com",
+        # "django-blog-postgres.herokuapp.com"
+       "*"
     ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -130,15 +132,18 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd94m6nghec0t3u',
+#         'USER': 'jttyuzixvlqazz',
+#         'PASSWORD': 'c79164741f970f54ad6b72a395e04dd6d7b5a06486c596e724fddd3245c36a1a',
+#         'HOST': 'ec2-54-227-248-71.compute-1.amazonaws.com', 
+#         'PORT': '5432',
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd94m6nghec0t3u',
-        'USER': 'jttyuzixvlqazz',
-        'PASSWORD': 'c79164741f970f54ad6b72a395e04dd6d7b5a06486c596e724fddd3245c36a1a',
-        'HOST': 'ec2-54-227-248-71.compute-1.amazonaws.com', 
-        'PORT': '5432',
-    }
+    "default": env.db("DATABASE_URL")
 }
 
 DATABASES["default"]["ATOMIC_REQUEST"] = True
@@ -156,10 +161,12 @@ CSRF_TRUSTED_ORIGINS = [
 if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
         "https://django-blog-postgres.herokuapp.com",
+        "django-blog-postgres.herokuapp.com"
     ]
 
     CSRF_TRUSTED_ORIGINS = [
         "https://django-blog-postgres.herokuapp.com",
+        "django-blog-postgres.herokuapp.com"
     ]
 
 
@@ -199,7 +206,20 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_TMP = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = '/static/'
+
+# os.makedirs(STATIC_TMP, exist_ok=True)
+# os.makedirs(STATIC_ROOT, exist_ok=True)
+
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
+
+# STATICFILES_STORAGE = 'whitenoise.storage. CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
