@@ -47,7 +47,10 @@ if not DEBUG:
     ALLOWED_HOSTS = [
        "djangoblog.com",
        ".djangoblog.com",
-       "www.djangoblog.com"
+       "www.djangoblog.com",
+       "https://djangoblog-1pbq.onrender.com",
+       "djangoblog-1pbq.onrender.com"
+
     ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -161,10 +164,14 @@ CSRF_TRUSTED_ORIGINS = [
 if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
         "https://djangoblog.com",
+        "https://djangoblog-1pbq.onrender.com",
+        "djangoblog-1pbq.onrender.com"
     ]
 
     CSRF_TRUSTED_ORIGINS = [
         "https://djangoblog.com",
+        "https://djangoblog-1pbq.onrender.com",
+        "djangoblog-1pbq.onrender.com"
     ]
 
 
