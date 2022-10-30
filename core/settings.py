@@ -32,9 +32,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-SITE_NAME = 'DjangoBlog'
+SITE_NAME = 'djangoblog'
 
-DEBUG = True
+DEBUG = False
 
 
 
@@ -45,9 +45,9 @@ ALLOWED_HOSTS = [
 
 if not DEBUG:
     ALLOWED_HOSTS = [
-        # "https://django-blog-postgres.herokuapp.com",
-        # "django-blog-postgres.herokuapp.com"
-       "*"
+       "djangoblog.com",
+       ".djangoblog.com",
+       "www.djangoblog.com"
     ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -160,13 +160,11 @@ CSRF_TRUSTED_ORIGINS = [
 
 if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
-        "https://django-blog-postgres.herokuapp.com",
-        "django-blog-postgres.herokuapp.com"
+        "https://djangoblog.com",
     ]
 
     CSRF_TRUSTED_ORIGINS = [
-        "https://django-blog-postgres.herokuapp.com",
-        "django-blog-postgres.herokuapp.com"
+        "https://djangoblog.com",
     ]
 
 
