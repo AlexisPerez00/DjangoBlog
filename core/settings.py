@@ -165,13 +165,11 @@ if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
         "https://djangoblog.com",
         "https://djangoblog-1pbq.onrender.com",
-        "djangoblog-1pbq.onrender.com"
     ]
 
     CSRF_TRUSTED_ORIGINS = [
         "https://djangoblog.com",
         "https://djangoblog-1pbq.onrender.com",
-        "djangoblog-1pbq.onrender.com"
     ]
 
 
