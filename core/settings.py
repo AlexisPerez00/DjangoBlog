@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import environ
+import dj_database_url
 # import django_heroku
 
 env = environ.Env()
@@ -145,9 +146,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #         'PORT': '5432',
 #     }
 # }
+
 DATABASES = {
-    "default": env.db("DATABASE_URL")
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://djangoblog:SfOO9ctKAsiInYM84IhNQVU6nbEr7RZ2@dpg-cdf01upgp3juhhuf0b0g-a.oregon-postgres.render.com/djangoblog',
+        conn_max_age=600
+    )
 }
+# DATABASES = {
+#     "default": env.db("DATABASE_URL")
+# }
 
 DATABASES["default"]["ATOMIC_REQUEST"] = True
 
