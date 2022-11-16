@@ -136,24 +136,26 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd94m6nghec0t3u',
-#         'USER': 'jttyuzixvlqazz',
-#         'PASSWORD': 'c79164741f970f54ad6b72a395e04dd6d7b5a06486c596e724fddd3245c36a1a',
-#         'HOST': 'ec2-54-227-248-71.compute-1.amazonaws.com', 
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://djangoblog:SfOO9ctKAsiInYM84IhNQVU6nbEr7RZ2@dpg-cdf01upgp3juhhuf0b0g-a.oregon-postgres.render.com/djangoblog',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'postgres://djangoblog:SfOO9ctKAsiInYM84IhNQVU6nbEr7RZ2@dpg-cdf01upgp3juhhuf0b0g-a/djangoblog',
+        'NAME': 'djangoblog',
+        'USER': 'djangoblog',
+        'PASSWORD': 'SfOO9ctKAsiInYM84IhNQVU6nbEr7RZ2',
+        'HOST': 'dpg-cdf01upgp3juhhuf0b0g-a', 
+        'PORT': '5432',
+    }
 }
+
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Feel free to alter this value to suit your needs.
+#         default='postgres://djangoblog:SfOO9ctKAsiInYM84IhNQVU6nbEr7RZ2@dpg-cdf01upgp3juhhuf0b0g-a.oregon-postgres.render.com/djangoblog',
+        
+#         conn_max_age=600
+#     )
+# }
 # DATABASES = {
 #     "default": env.db("DATABASE_URL")
 # }
@@ -216,11 +218,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 # django_heroku.settings(locals())
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_TMP = os.path.join(BASE_DIR, 'static')
 # STATIC_URL = '/static/'
 
@@ -231,7 +233,7 @@ STATIC_URL = '/static/'
 #     os.path.join(BASE_DIR, 'static'),
 # )
 
-# STATICFILES_STORAGE = 'whitenoise.storage. CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage. CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
