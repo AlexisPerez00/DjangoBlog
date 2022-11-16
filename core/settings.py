@@ -136,26 +136,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'postgres://djangoblog:SfOO9ctKAsiInYM84IhNQVU6nbEr7RZ2@dpg-cdf01upgp3juhhuf0b0g-a/djangoblog',
-        'NAME': 'djangoblog',
-        'USER': 'djangoblog',
-        'PASSWORD': 'SfOO9ctKAsiInYM84IhNQVU6nbEr7RZ2',
-        'HOST': 'dpg-cdf01upgp3juhhuf0b0g-a', 
-        'PORT': '5432',
-    }
-}
-
-
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Feel free to alter this value to suit your needs.
-#         default='postgres://djangoblog:SfOO9ctKAsiInYM84IhNQVU6nbEr7RZ2@dpg-cdf01upgp3juhhuf0b0g-a.oregon-postgres.render.com/djangoblog',
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default= os.environ.get('DATABASE_URL'),
         
-#         conn_max_age=600
-#     )
-# }
+        conn_max_age=600
+    )
+}
 # DATABASES = {
 #     "default": env.db("DATABASE_URL")
 # }
