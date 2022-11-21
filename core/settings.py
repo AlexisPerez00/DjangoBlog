@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import environ
-import dj_database_url
-# import django_heroku
+# import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()
@@ -137,17 +136,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default= os.environ.get('DATABASE_URL'),
-        
-        conn_max_age=600
-    )
-}
 # DATABASES = {
-#     "default": env.db("DATABASE_URL")
+#     'default': dj_database_url.config(
+#         # Feel free to alter this value to suit your needs.
+#         default= os.environ.get('DATABASE_URL'),
+        
+#         conn_max_age=600
+#     )
 # }
+DATABASES = {
+    "default": env.db("DATABASE_URL")
+}
 
 DATABASES["default"]["ATOMIC_REQUEST"] = True
 
@@ -207,11 +206,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 # django_heroku.settings(locals())
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_TMP = os.path.join(BASE_DIR, 'static')
 # STATIC_URL = '/static/'
 
@@ -222,7 +221,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #     os.path.join(BASE_DIR, 'static'),
 # )
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
